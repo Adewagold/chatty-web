@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="https://bootswatch.com/4/lux/bootstrap.min.css">
+    {% load static %}
+    <link rel="stylesheet" type="text/css" href={% static 'blog/main.css' %} />
+    {% if title %}
+    <title>{{ title }}</title>
+    {% else %}
+    <title>Django project</title>
+    {% endif %}
+</head>
+<body>
+        <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+                <a class="navbar-brand" href="#">Chatty-web</a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor01" aria-controls="navbarColor01" aria-expanded="false" aria-label="Toggle navigation">
+                  <span class="navbar-toggler-icon"></span>
+                </button>
+              
+                <div class="collapse navbar-collapse" id="navbarColor01">
+                  <ul class="navbar-nav mr-auto">
+                    <li class="nav-item active">
+                      <a class="nav-link" href="{% url 'blog-home' %}">Home
+                        <span class="sr-only">(current)</span>
+                      </a>
+                    </li>
+                    
+                    <li class="nav-item">
+                      <a class="nav-link" href="{% url 'blog-about' %}">About</a>
+                    </li>
+                    <li class="nav-item dropdown">
+                      <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">New here?</a>
+                      <div class="dropdown-menu">
+                        <a class="dropdown-item" href="#">Login</a>
+                        <a class="dropdown-item" href="#">Register</a>
+                        <div class="dropdown-divider"></div>
+                        <a class="dropdown-item" href="#">Logout</a>
+                      </div>
+                    </li>
+                  </ul>
+                  <form class="form-inline my-2 my-lg-0">
+                    <input class="form-control mr-sm-2" type="text" placeholder="Search">
+                    <button class="btn btn-secondary my-2 my-sm-0" type="submit">Search</button>
+                  </form>
+                </div>
+              </nav>
+        <main role="main" class="container">
+            <div class="container">
+                <hr/>
+                <div class="row">
+                        <div class="col-md-8">
+                            {% block content %}{% endblock%}
+                        </div>
+                        <div class="col-md-4">
+                                <div class="card mb-3">
+                                        <h3 class="card-header">Sidebar</h3>
+                                        <div class="card-body">
+                                        <h5 class="card-title">Special title treatment</h5>
+                                        <h6 class="card-subtitle text-muted">Support card subtitle</h6>
+                                        </div>
+                                        <svg xmlns="http://www.w3.org/2000/svg" class="d-block user-select-none" width="100%" height="200" aria-label="Placeholder: Image cap" focusable="false" role="img" preserveAspectRatio="xMidYMid slice" viewBox="0 0 318 180" style="font-size:1.125rem;text-anchor:middle">
+                                        <rect width="100%" height="100%" fill="#868e96"></rect>
+                                        <text x="50%" y="50%" fill="#dee2e6" dy=".3em">Image cap</text>
+                                        </svg>
+                                        <div class="card-body">
+                                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                                        </div>
+                                        <ul class="list-group list-group-flush">
+                                        <li class="list-group-item">Cras justo odio</li>
+                                        <li class="list-group-item">Dapibus ac facilisis in</li>
+                                        <li class="list-group-item">Vestibulum at eros</li>
+                                        </ul>
+                                        <div class="card-body">
+                                        <a href="#" class="card-link">Card link</a>
+                                        <a href="#" class="card-link">Another link</a>
+                                        </div>
+                                        <div class="card-footer text-muted">
+                                        2 days ago
+                                        </div>
+                                    </div>
+                    
+                                </div>
+                        </div>
+            </div>
+            
+        </main>
+   
+    <script src="https://bootswatch.com/_vendor/jquery/dist/jquery.min.js"></script>
+    <script src="https://bootswatch.com/_vendor/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://bootswatch.com/_assets/js/custom.js"></script>
+</body>
+</html>

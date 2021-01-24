@@ -1,0 +1,14 @@
+{% extends "blog/base.html" %}
+
+{% block content %}
+
+    {% for post in posts %}
+    <div class="row">
+        <h2>{{ post.title }}</h2>
+        <blockquote class="blockquote">
+            <p class="mb-0">{{post.content}}</p>
+            <footer class="blockquote-footer">By {{ post.author }}  <cite title="Source Title">on {{ post.date_posted }}</cite></footer>
+        </blockquote>
+    </div>
+    {% endfor %}
+{% endblock content%}
