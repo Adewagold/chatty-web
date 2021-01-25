@@ -7,7 +7,7 @@
         <h2>{{ post.title }}</h2>
         <blockquote class="blockquote">
             <p class="mb-0">{{post.content}}</p>
-            <footer class="blockquote-footer">By {{ post.author }}  <cite title="Source Title">on {{ post.date_posted }}</cite></footer>
+            <footer class="blockquote-footer">By {{ post.author }}  <cite title="Source Title">on {{ post.date_posted|date:"F d, Y" }}</cite></footer>
         </blockquote>
     </div>
     {% endfor %}
