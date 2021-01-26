@@ -4,8 +4,17 @@
 {% block content %}
     <div class="container">
         <h1>Hi, {{ user.username }}!</h1>
-        <div class="border-top pt-3">
-           <small class="text-muted">Need an account? <a class="ml-2" href="{% url 'register' %}">Sign up</a></small> 
+        
+        <div class="content-section">
+            <div >
+                <img class="rounded-circle" width="400px" heigth="400px" src="{{ user.profile.image.url}}">
+            </div>
+            <div class="border-top pt-3">
+                <medium class="text-muted">Username: <p class="text-secondary">{{ user.username }}</p> <a class="ml-2" href="{% url 'register' %}"></a></medium> 
+            </div>
+            <div class="border-top pt-3">
+                <medium class="text-muted">Email: <p class="text-secondary">{{ user.email }}</p> <a class="ml-2" href="{% url 'register' %}"></a></medium> 
+            </div>
         </div>
     </div>
     
