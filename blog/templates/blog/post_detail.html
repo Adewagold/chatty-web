@@ -11,5 +11,11 @@
             <p class="mb-0">{{object.content}}</p>
             <footer class="blockquote-footer">By {{ object.author }}  <cite title="Source Title">on {{ object.date_posted|date:"F d, Y" }}</cite></footer>
         </blockquote>
+        {% if object.author == user %}
+        <div class="form-group">
+                <a class="btn btn-primary" href="{% url 'post-update' object.id %}">Update</a>
+                <a class="btn btn-danger" href="{% url 'post-delete' object.id %}">Delete</a>
+        </div>
+        {% endif %}
     </div>
 {% endblock content%}
