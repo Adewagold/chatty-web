@@ -1,0 +1,15 @@
+{% extends "blog/base.html" %}
+
+{% block content %}
+
+    <div class="row">
+            <div >
+                <img class="rounded-circle" width="40px" height="40px" src="{{ user.profile.image.url}}">
+            </div>
+        <h2> {{ object.title }} </h2>
+        <blockquote class="blockquote">
+            <p class="mb-0">{{object.content}}</p>
+            <footer class="blockquote-footer">By {{ object.author }}  <cite title="Source Title">on {{ object.date_posted|date:"F d, Y" }}</cite></footer>
+        </blockquote>
+    </div>
+{% endblock content%}
