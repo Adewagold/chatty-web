@@ -1,17 +1,17 @@
 {% extends "blog/base.html" %}
 
 {% block content %}
-
+ <h1>Posts by {{ view.kwargs.username }} ({{ page_obj.paginator.num_pages}})</h1>
     {% for post in posts %}
     <div class="row">
-            
-            <div >
-                <img class="rounded-circle" width="40px" height="40px" src="{{ post.author.profile.image.url}}">
-            </div>
+           
+        <div >
+            <img class="rounded-circle" width="40px" height="40px" src="{{ post.author.profile.image.url}}">
+        </div>
         <h2> <a href="{% url 'post-detail' post.id %}">{{ post.title }} </a></h2>
         <blockquote class="blockquote">
             <p class="mb-0">{{post.content}}</p>
-            <footer class="blockquote-footer">By <a href="{% url 'user-posts' post.author.username %}">{{ post.author }}</a>  <cite title="Source Title">on {{ post.date_posted|date:"F d, Y" }}</cite></footer>
+            <footer class="blockquote-footer">By <a href="{% url 'user-posts' post.author.username %}"> {{ post.author.username }} </a> <cite title="Source Title">on {{ post.date_posted|date:"F d, Y" }}</cite></footer>
         </blockquote>
     </div>
     {% endfor %}
